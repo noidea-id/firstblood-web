@@ -17,9 +17,9 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-});
 
-Route::prefix('otp')->group(function () {
-    Route::put('/generate/{phone}', 'Api\OtpController@generate');
-    Route::post('/verificate/{code}', 'Api\OtpController@verificate');
+    Route::prefix('otp')->group(function () {
+        Route::put('/generate/{phone}', 'Api\OtpController@generate');
+        Route::post('/verificate/{code}', 'Api\OtpController@verificate');
+    });
 });
