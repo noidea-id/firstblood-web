@@ -26,8 +26,16 @@ class AddBloodToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['blood_type', 'blood_rhesus']);
-        });
+        if (Schema::hasColumn('users', 'blood_type')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->dropColumn('blood_type');
+            });
+        }
+
+        if (Schema::hasColumn('users', 'blood_rhesus')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->dropColumn('blood_rhesus');
+            });
+        }
     }
 }

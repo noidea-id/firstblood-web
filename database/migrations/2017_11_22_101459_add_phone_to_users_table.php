@@ -26,8 +26,16 @@ class AddPhoneToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['country_code', 'phone']);
-        });
+        if (Schema::hasColumn('users', 'country_code')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->dropColumn('country_code');
+            });
+        }
+
+        if (Schema::hasColumn('users', 'phone')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->dropColumn('phone');
+            });
+        }
     }
 }
