@@ -13,18 +13,20 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('/login', 'Api\UserController@login');
-Route::post('/register', 'Api\UserController@register');
+Route::namespace('Api')->group(function () {
+    Route::post('/login', 'UserController@login');
+    Route::post('/register', 'UserController@register');
 
-Route::middleware('auth:api')->group(function () {
-    Route::get('/user', function (Request $request) {
-        return $request->user();
+    Route::middleware('auth:api')->group(function () {
+        Route::get('/user', function (Request $request) {
+            return $request->user();
+        });
+
+        Route::prefix('otp')->group(function () {
+            Route::put('/generate/{phone}', 'OtpController@generate');
+            Route::post('/verificate/{code}', 'OtpController@verificate');
+        });
+
+        Route::apiResource('post', 'PostController');
     });
-
-    Route::prefix('otp')->group(function () {
-        Route::put('/generate/{phone}', 'Api\OtpController@generate');
-        Route::post('/verificate/{code}', 'Api\OtpController@verificate');
-    });
-
-    Route::apiResource('post', 'Api\PostController');
 });
