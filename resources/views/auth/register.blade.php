@@ -61,6 +61,62 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('country_code') ? ' has-error' : '' }}">
+                            <label for="country_code" class="col-md-4 control-label">Country Code</label>
+
+                            <div class="col-md-6">
+                                <input id="country_code" type="text" class="form-control" name="country_code" value="{{ old('country_code') }}" required autofocus>
+
+                                @if ($errors->has('country_code'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('country_code') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+                            <label for="phone" class="col-md-4 control-label">Phone</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}" required autofocus>
+
+                                @if ($errors->has('phone'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('blood_type') ? ' has-error' : '' }}">
+                            <label for="blood_type" class="col-md-4 control-label">Blood Type</label>
+
+                            <div class="col-md-6">
+                                <input id="blood_type" type="text" class="form-control" name="blood_type" value="{{ old('blood_type') }}" required autofocus>
+
+                                @if ($errors->has('blood_type'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('blood_type') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('blood_rhesus') ? ' has-error' : '' }}">
+                            <label for="blood_rhesus" class="col-md-4 control-label">Blood Rhesus</label>
+
+                            <div class="col-md-6">
+                                <input id="blood_rhesus" type="text" class="form-control" name="blood_rhesus" value="{{ old('blood_rhesus') }}" required autofocus>
+
+                                @if ($errors->has('blood_rhesus'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('blood_rhesus') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
