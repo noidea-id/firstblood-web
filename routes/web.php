@@ -18,3 +18,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/api-authentication-manager', 'ApiAuthenticationManagerController@index')->name('manage-api-key');
