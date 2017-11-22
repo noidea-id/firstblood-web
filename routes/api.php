@@ -25,4 +25,6 @@ Route::middleware('auth:api')->group(function () {
         Route::put('/generate/{phone}', 'Api\OtpController@generate');
         Route::post('/verificate/{code}', 'Api\OtpController@verificate');
     });
+
+    Route::apiResource('post', 'Api\PostController');
 });
