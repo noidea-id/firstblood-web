@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'country_code', 'phone'
     ];
 
     /**
@@ -27,4 +27,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Return the country code and phone number concatenated
+     *
+     * @return string
+     */
+    public function getPhoneNumber()
+    {
+        return $this->country_code.$this->phone;
+    }
 }
