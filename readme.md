@@ -26,3 +26,4 @@ Utilizing [MainApi.net](https://www.mainapi.net) SMSOTP.
 * [ ] Location
 * [ ] Discussion
 * [ ] History
+* [ ] Project's Documentation
