@@ -22,9 +22,9 @@ class Api
     {
         $request = $this->client->post('/token', [
             'headers' => [
-                'Authorization' => 'Basic '. env('MAINAPI_KEY')
+                'Authorization' => 'Basic '.env('MAINAPI_KEY'),
             ],
-            'body' => 'grant_type=client_credentials'
+            'body' => 'grant_type=client_credentials',
         ])->getBody();
 
         $this->access_token = json_decode($request)->access_token;
